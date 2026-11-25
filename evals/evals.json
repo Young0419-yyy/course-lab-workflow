@@ -1,0 +1,48 @@
+{
+  "skill_name": "course-lab-workflow",
+  "evaluation_scope": "流程适配方案检查，不代表完整实验或文档渲染端到端测试。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "regression-notebook-only",
+      "prompt": "实验8换成房价回归，按同样流程处理，只要ipynb。目录有指导.pdf、housing.csv、报告模板.doc和旧.venv，另有同级实验7文件夹。PDF及蓝色批注规定：CSV有表头id,area,rooms,age,price；id不用作特征；比较普通线性回归、Ridge、Lasso；训练测试8:2；报告R²和MSE，按验证集MSE选优。本机Python是D:\\Python313\\python.exe，旧.venv的home指向已经不存在的C:\\OldPython。输出具体执行方案即可，当前不要运行实验或修改原始文件。",
+      "expected_output": "仅规划Notebook；按回归指标与PDF批注处理id；使用本机Python新建或修复本实验隔离环境，避免全局安装及Jupyter依赖；训练内部调参，不填写报告，不改实验7。",
+      "files": [],
+      "expectations": [
+        "仅生成Notebook，不填写现有报告或改动其他实验。",
+        "依据PDF选择线性回归、Ridge、Lasso和R²/MSE，排除id特征，不套用分类指标。",
+        "识别失效虚拟环境，使用用户本机Python在本实验隔离环境安装必要依赖，默认不装Jupyter相关包。",
+        "明确在训练数据内部调参，以验证集MSE选优，测试集不参与选参。",
+        "提出读取PDF批注、真实执行并保存Notebook输出的检查，不声称测试资料已运行。"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "report-only-doc-template",
+      "prompt": "实验10已经有运行完成的实验.ipynb，现在只补目录内原来的实验报告.doc。保持四页表格模板、字体和栏目，简洁，不贴代码；步骤是读取数据、编码、逻辑回归、K近邻、决策树五步，各留截图空白。Notebook显示：普通逻辑回归0类precision=0.8、recall=0.6、F1=0.6857；平衡后为0.7、0.9、0.7875。Gini的0类F1为0.93，信息熵为0.92，验证集选出Gini。姓名学号尚未提供。输出具体填写和验证方案，当前不要运行模型或修改原始报告。",
+      "expected_output": "只读现有Notebook输出并填写原.doc；不新建环境或重跑；留五处截图空白；不含代码或环境安装说明；保留未知个人信息和教师区域；如实报告precision下降及F1/recall上升，先副本编辑并逐页验证。",
+      "files": [],
+      "expectations": [
+        "只填写报告，不重跑模型，不创建环境或安装依赖。",
+        "保持原.doc、四页模板及字体表格，并按五步预留五处截图空白。",
+        "正文简洁且不包含代码、虚拟环境、安装或工具制作过程。",
+        "如实说明precision下降及recall和F1提高，不编造三项同时提高。",
+        "未知个人信息和教师区域留空或保持原样，使用工作副本并逐页核验。"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "association-full-workflow",
+      "prompt": "实验11是购物篮关联规则，照之前流程完成Notebook和报告。资料有Apriori案例.pdf、baskets.csv和实验报告.docx。CSV无表头，每行是用分号分隔的一次购物记录。PDF批注要求先合并同一交易内重复商品，再使用TransactionEncoder、apriori与association_rules；支持度0.05、置信度0.6；输出频繁项集以及support、confidence、lift，不做分类预测。报告步骤分数据整理、频繁项集、关联规则三个部分，自己截图。输出具体执行方案，当前不要运行实验或改写资料。",
+      "expected_output": "完整流程适配Apriori与无表头购物记录及批注；不套用分类模型、0类F1或监督划分；保存真实Notebook输出，报告沿用.docx且留三处截图空白；延续最小本地虚拟环境及不额外安装Jupyter的习惯。",
+      "files": [],
+      "expectations": [
+        "按完整范围规划Notebook和原.docx报告，依三个实际部分预留三处截图空白。",
+        "处理无表头、分号分隔及交易内去重，读取PDF批注。",
+        "采用Apriori及关联规则，评价support、confidence、lift，不套用分类模型、0类F1或监督训练测试划分。",
+        "使用本机Python的本实验隔离环境，默认不额外安装Jupyter包，并保存真实Notebook输出。",
+        "报告根据实际输出简洁填写，保留原格式，不写代码或环境配置，不声称实验已经运行。"
+      ]
+    }
+  ]
+}
